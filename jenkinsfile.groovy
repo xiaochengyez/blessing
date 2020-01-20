@@ -43,7 +43,7 @@ stage('clean docker environment') {
 stage('make new docker image') {
     node('slave'){
         try{
-            sh 'docker build -t blessing .'
+            sh 'docker build -t  blessing .'
         }catch(exc){
             echo 'Make blessing docker image failed, please check the environment!'
         }
