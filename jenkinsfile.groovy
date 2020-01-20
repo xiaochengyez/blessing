@@ -14,7 +14,7 @@ stage('maven compile & package') {
         def jdkHome = tool 'jdk1.8_slave'
         env.PATH = "${mvnHome}/bin:${env.PATH}"
         env.PATH = "${jdkHome}/bin:${env.PATH}"
-        sh "mv webapp.war ROOT.war"
+        sh "mv blessing.war ROOT.war"
     }
 }
 
