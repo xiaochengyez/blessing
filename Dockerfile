@@ -10,7 +10,7 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT
 RUN rm -f /usr/local/tomcat/webapps/ROOT.war
 
 #将新的ROOT.war 复制到镜像中的指定位置
-ADD target/ROOT.war /usr/local/tomcat/webapps
+ADD ROOT.war /usr/local/tomcat/webapps
 
 #对外暴露8080端口
 EXPOSE 8080
