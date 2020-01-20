@@ -1,6 +1,6 @@
 stage('pull source code') {
     node('slave'){
-        git([url: 'https://github.com/xiaochengyez/iWeb.git', branch: 'master'])
+        git([url: 'https://github.com/xiaochengyez/blessing.git', branch: 'master'])
     }
 }
 
@@ -15,27 +15,27 @@ stage('maven compile & package') {
         env.PATH = "${mvnHome}/bin:${env.PATH}"
         env.PATH = "${jdkHome}/bin:${env.PATH}"
         sh "mvn clean install"
-        sh "mv target/iWeb.war target/ROOT.war"
+        sh "mv target/blessing.war target/ROOT.war"
     }
 }
 
 stage('clean docker environment') {
     node('slave'){
         try{
-            sh 'docker stop iWebObj'
+            sh 'docker stop blessing'
         }catch(exc){
-            echo 'iWebObj container is not running!'
+            echo 'blessing container is not running!'
         }
 
         try{
-            sh 'docker rm iWebObj'
+            sh 'docker rm blessing'
         }catch(exc){
-            echo 'iWebObj container does not exist!'
+            echo 'blessing container does not exist!'
         }
         try{
-            sh 'docker rmi iweb'
+            sh 'docker rmi blessing'
         }catch(exc){
-            echo 'iweb image does not exist!'
+            echo 'blessing image does not exist!'
         }
     }
 }
@@ -43,9 +43,9 @@ stage('clean docker environment') {
 stage('make new docker image') {
     node('slave'){
         try{
-            sh 'docker build -t iweb .'
+            sh 'docker build -t blessing .'
         }catch(exc){
-            echo 'Make iweb docker image failed, please check the environment!'
+            echo 'Make blessing docker image failed, please check the environment!'
         }
     }
 }
@@ -53,7 +53,7 @@ stage('make new docker image') {
 stage('start docker container') {
     node('slave'){
         try{
-            sh 'docker run --name iWebObj -d -p 8111:8080 iweb'
+            sh 'docker run --name blessing -d -p 8112:8080 blessing'
         }catch(exc){
             echo 'Start docker image failed, please check the environment!'
         }

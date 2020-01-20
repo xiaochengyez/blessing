@@ -16,7 +16,7 @@ docker rm blessing
 docker rmi blessing
 docker build -t blessing .
 
-#启动docker image, 宿主机暴露端口 8111
+#启动docker image, 宿主机暴露端口 8112
 docker run --name myblessing -d -p 8112:8080 blessing
 
 
