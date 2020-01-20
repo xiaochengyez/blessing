@@ -15,7 +15,7 @@ stage('maven compile & package') {
         env.PATH = "${mvnHome}/bin:${env.PATH}"
         env.PATH = "${jdkHome}/bin:${env.PATH}"
         sh "mvn clean install"
-        //sh "mv target/blessing.war target/ROOT.war"
+        sh "mv target/blessing.war target/ROOT.war"
     }
 }
 
