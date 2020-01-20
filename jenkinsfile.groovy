@@ -22,13 +22,13 @@ stage('maven compile & package') {
 stage('clean docker environment') {
     node('slave'){
         try{
-            sh 'docker stop blessing'
+            sh 'docker stop myblessing'
         }catch(exc){
             echo 'blessing container is not running!'
         }
 
         try{
-            sh 'docker rm blessing'
+            sh 'docker rm myblessing'
         }catch(exc){
             echo 'blessing container does not exist!'
         }
