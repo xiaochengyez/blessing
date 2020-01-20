@@ -10,7 +10,7 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT
 RUN rm -f /usr/local/tomcat/webapps/ROOT.war
 
 #将新的ROOT.war 复制到镜像中的指定位置
-ADD target/blessing-1.0-SNAPSHOT.jar /usr/local/tomcat/webapps
+ADD target/blessing.war /usr/local/tomcat/webapps
 
 #对外暴露8080端口
 EXPOSE 8080
