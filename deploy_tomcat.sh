@@ -26,7 +26,7 @@ rm -f $TOMCAT_PATH/webapps/blessing.war
 rm -rf $TOMCAT_PATH/webapps/ROOT
 
 ## 复制/粘贴新blessing.war包到tomcat
-cp $PROJ_PATH/iWeb/target/blessing.war $TOMCAT_PATH/webapps/
+cp $PROJ_PATH/blessing/target/blessing.war $TOMCAT_PATH/webapps/
 cd $TOMCAT_PATH/webapps/
 mv blessing.war ROOT.war
 

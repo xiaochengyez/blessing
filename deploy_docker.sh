@@ -9,7 +9,7 @@ mvn clean install
 cd $PROJ_PATH/target
 mv blessing.war ROOT.war
 
-#制作新的docker image - iweb
+#制作新的docker image -
 cd $PROJ_PATH
 docker stop blessing
 docker rm blessing
