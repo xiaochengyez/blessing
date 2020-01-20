@@ -15,7 +15,7 @@ stage('maven compile & package') {
         env.PATH = "${mvnHome}/bin:${env.PATH}"
         env.PATH = "${jdkHome}/bin:${env.PATH}"
         sh "mvn clean install"
-        sh "mv target/blessing.war target/ROOT.war"
+        //sh "mv target/blessing.war target/ROOT.war"
     }
 }
 
@@ -53,7 +53,7 @@ stage('make new docker image') {
 stage('start docker container') {
     node('slave'){
         try{
-            sh 'docker run --name blessing -d -p 8112:8080 blessing'
+            sh 'docker run --name myblessing -d -p 8112:8080 blessing'
         }catch(exc){
             echo 'Start docker image failed, please check the environment!'
         }
