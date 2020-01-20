@@ -4,20 +4,6 @@ stage('pull source code') {
     }
 }
 
-stage('maven compile & package') {
-    node('slave'){
-        sh ". /etc/profile"
-
-
-        //定义maven java环境
-        def mvnHome = tool 'maven-3.6.1_slave'
-        def jdkHome = tool 'jdk1.8_slave'
-        env.PATH = "${mvnHome}/bin:${env.PATH}"
-        env.PATH = "${jdkHome}/bin:${env.PATH}"
-        sh "mv blessing.war ROOT.war"
-    }
-}
-
 stage('clean docker environment') {
     node('slave'){
         try{
